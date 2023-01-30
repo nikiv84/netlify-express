@@ -9,12 +9,10 @@ const MAPS_API_KEY = process.env.MAPS_API_KEY;
 const router = express.Router();
 router.get("/", (req, res) => {
   res.writeHead(200, { "Content-Type": "text/html" });
-  res.write(
-    "<h1>Hello from Express.js!</h1><p>Api key: " + MAPS_API_KEY + "</p>"
-  );
+  res.write("<h1>Hello from Express.js!</h1>");
   res.end();
 });
-router.get("/another", (req, res) => res.json({ route: req.originalUrl }));
+router.get("/maps_api_key", (req, res) => res.json({ apiKey: MAPS_API_KEY }));
 router.post("/", (req, res) => res.json({ postBody: req.body }));
 
 app.use(bodyParser.json());
