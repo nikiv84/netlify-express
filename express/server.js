@@ -1,10 +1,12 @@
 "use strict";
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const serverless = require("serverless-http");
 const app = express();
 const bodyParser = require("body-parser");
 const MAPS_API_KEY = process.env.MAPS_API_KEY;
+app.use(cors());
 
 const router = express.Router();
 router.get("/", (req, res) => {
